@@ -5,25 +5,60 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Panji Online Router</title>
   <style>
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#0b1020;color:#e5e7eb;margin:0}
-    .wrap{max-width:860px;margin:40px auto;padding:24px}
-    .card{background:#121a33;border:1px solid #2b355e;border-radius:16px;padding:20px}
-    h1{margin:0 0 8px;font-size:28px}
-    p{color:#a9b3d1}
-    ul{line-height:1.9}
-    a{color:#8ab4ff;text-decoration:none}
+    :root{color-scheme:dark;--bg:#080b16;--card:#111827;--muted:#9ca3af;--text:#f9fafb;--line:#263044;--accent:#8ab4ff}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at top,#172554 0,#080b16 42%);color:var(--text);margin:0;min-height:100vh}
+    .wrap{max-width:960px;margin:0 auto;padding:56px 24px}
+    .hero{margin-bottom:24px}
+    .eyebrow{color:var(--accent);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+    h1{margin:10px 0 12px;font-size:clamp(34px,5vw,58px);line-height:1.02}
+    p{color:var(--muted);font-size:17px;line-height:1.65;max-width:720px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:28px}
+    .card{background:rgba(17,24,39,.82);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 16px 60px rgba(0,0,0,.25)}
+    .card h2,.card h3{margin:0 0 10px}
+    ul{margin:0;padding-left:20px;line-height:1.9;color:#d1d5db}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    code{background:#020617;border:1px solid #1e293b;border-radius:6px;padding:2px 6px;color:#bfdbfe}
+    footer{margin-top:34px;color:#6b7280;font-size:14px}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Panji Online Router</h1>
-      <p>Single publish gateway for active pages under <code>/[slug]</code>.</p>
-      <h3>Active links</h3>
-      <ul>
-        <li><a href="/demo/">/demo</a></li>
-      </ul>
-    </div>
-  </div>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Static publishing router</div>
+      <h1>One clean domain for many small pages.</h1>
+      <p>Panji Online Router is a lightweight static route index for demos, reports, previews, learning pages, and AI-generated artifacts under <code>/[slug]</code>.</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Active links</h2>
+        <ul>
+        <!-- ROUTES:START -->
+        <li><a href="/demo/">/demo/</a> — Demo page</li>
+        <!-- ROUTES:END -->
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How it works</h3>
+        <ul>
+          <li>Create <code>public/[slug]/index.html</code></li>
+          <li>Add the route to this index</li>
+          <li>Deploy the <code>public</code> folder</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Maintainer friendly</h3>
+        <ul>
+          <li>No database</li>
+          <li>No backend server</li>
+          <li>Git history as audit trail</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>Public static content only. Do not commit secrets or private data.</footer>
+  </main>
 </body>
 </html>
